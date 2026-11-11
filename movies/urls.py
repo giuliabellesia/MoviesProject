@@ -5,12 +5,12 @@ from .views import MovieViewSet
 
 app_name = 'movies'
 
+router = SimpleRouter()
+router.register('movies', MovieViewSet, basename = "movies")
+
 urlpatterns = [
     path('<int:pk>/', DetailMovie.as_view()),
     path('', ListMovie.as_view()),
-]
+] + router.urls
 
-router = SimpleRouter
-router.register('movies', MovieViewSet, basename = "movies")
-
-urlpatterns = router.urls
+#Se invece vuoi usare solo MovieViewSet, puoi lasciare urlpatterns = router.urls.

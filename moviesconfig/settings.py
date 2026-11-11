@@ -75,9 +75,11 @@ WSGI_APPLICATION = 'moviesconfig.wsgi.application'
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
+
+#AUTH_USER_MODEL = 'my_auth_app.MyCustomUser' come utente usa utente in app ==> ma noi non abbiamo
 
 CORS_ORIGIN_WHITELIST = [
  'http://localhost:8000', #default django
