@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'movies.apps.MoviesConfig', 
     'corsheaders',
 ]
@@ -76,7 +77,11 @@ WSGI_APPLICATION = 'moviesconfig.wsgi.application'
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES":[
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
 
 #AUTH_USER_MODEL = 'my_auth_app.MyCustomUser' come utente usa utente in app ==> ma noi non abbiamo

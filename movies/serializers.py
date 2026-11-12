@@ -7,9 +7,9 @@ __all__ = ["MovieSerializer",
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['id', 'title', 'subtitle', 'director', 'description']
+        fields = ['id', 'title', 'subtitle', 'director', 'description', 'streaming_channel']
 
 class StreamingSerializer(serializers.ModelSerializer):
     class Meta:
         model = StreamingChannel
-        fields = ['id', 'name', 'film']
+        fields = ['id', 'name']
