@@ -3,7 +3,9 @@ from django.contrib.auth import get_user_model
 
 USER = get_user_model() #noi qui non usiamo custom ma è sempre buona pratica
 
-__all__ = ["Movie"]
+__all__ = ["Movie",
+           "StreamingChannel",
+           ]
 
 # Create your models here.
 class Movie(models.Model):
@@ -24,3 +26,10 @@ class Movie(models.Model):
 
 def __str__(self):
     return self.title
+
+class StreamingChannel(models.Model):
+    name = models.CharField(max_length=50)
+    film = models.ForeignKey()
+
+    def __str__(self):
+        return self.name
