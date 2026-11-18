@@ -91,9 +91,9 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    "TITLE" = "BLOG API PROJECT";
-    "DESCRIPTION" = "A SIMPLE BLOG WITH DRF";
-    "VERSION" = "1.0.0";
+    "TITLE" : "BLOG API PROJECT",
+    "DESCRIPTION" : "A SIMPLE BLOG WITH DRF",
+    "VERSION" : "1.0.0";
 }
 
 #AUTH_USER_MODEL = 'my_auth_app.MyCustomUser' come utente usa utente in app ==> ma noi non abbiamo
