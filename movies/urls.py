@@ -12,6 +12,7 @@ router.register('streaming-channel', StreamingChannelViewSet, basename= "streami
 urlpatterns = [
     path('<int:pk>/', DetailMovie.as_view()),
     path('', ListMovie.as_view()),
+    
 ] + router.urls #ci restituisce pattern completo quando registriamo entrambi routers
 
 

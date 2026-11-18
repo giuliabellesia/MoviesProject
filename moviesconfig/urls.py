@@ -15,11 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from movies.views import ListMovie
 from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
+    path("", ListMovie.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('api/v1/', include('movies.urls')),
     path('api/v1/auth/', include('rest_framework.urls')),
+    path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
 ]

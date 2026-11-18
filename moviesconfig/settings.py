@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'movies.apps.MoviesConfig', 
     'corsheaders',
+    'dj_rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'moviesconfig.urls'
+LOGIN_REDIRECT_URL = '/api/v1/'
 
 TEMPLATES = [
     {
