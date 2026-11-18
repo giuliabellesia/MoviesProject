@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'movies.apps.MoviesConfig', 
     'corsheaders',
     'dj_rest_auth',
+    'drf-spectacular',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +85,15 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
+    "DEFAULT_SCHEMA_CLASSES":[
+        "drf_spectacular.openapi.AutoSchema"
+    ]
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE" = "BLOG API PROJECT";
+    "DESCRIPTION" = "A SIMPLE BLOG WITH DRF";
+    "VERSION" = "1.0.0";
 }
 
 #AUTH_USER_MODEL = 'my_auth_app.MyCustomUser' come utente usa utente in app ==> ma noi non abbiamo

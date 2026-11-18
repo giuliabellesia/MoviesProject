@@ -18,6 +18,7 @@ from django.contrib import admin
 from movies.views import ListMovie
 from django.urls import path
 from django.urls.conf import include
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("", ListMovie.as_view(), name="home"),
@@ -25,4 +26,6 @@ urlpatterns = [
     path('api/v1/', include('movies.urls')),
     path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/schema', SpectacularAPIView.as_view(), name="schema"),
+    path('api/schema/swagger-ui', SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
 ]
