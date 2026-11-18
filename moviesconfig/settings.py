@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'movies.apps.MoviesConfig', 
     'corsheaders',
     'dj_rest_auth',
-    'drf-spectacular',
+    'drf_spectacular',
+
+    'oauth2_provider',
+    'social_django',
+    'drf_social_oauth2',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +74,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -85,15 +91,22 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
-    "DEFAULT_SCHEMA_CLASSES":[
-        "drf_spectacular.openapi.AutoSchema"
-    ]
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES":(
+        'oauth_provider.contrib.rest_framework.OAuth2Authentication',
+        'drf_social_oauth2.authentication.SocialAuthentication',
+    )
 }
+
+AUTHENTICATION_BACKENDS = (
+    'drf_social_oauth2.backends.DjangoOauth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 SPECTACULAR_SETTINGS = {
     "TITLE" : "BLOG API PROJECT",
     "DESCRIPTION" : "A SIMPLE BLOG WITH DRF",
-    "VERSION" : "1.0.0";
+    "VERSION" : "1.0.0"
 }
 
 #AUTH_USER_MODEL = 'my_auth_app.MyCustomUser' come utente usa utente in app ==> ma noi non abbiamo
